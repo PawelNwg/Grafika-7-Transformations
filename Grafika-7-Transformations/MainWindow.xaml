@@ -1,0 +1,45 @@
+﻿<Window x:Class="Grafika_7_Transformations.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Grafika_7_Transformations"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100px" Name="Tools"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70px"></RowDefinition>
+            <RowDefinition Height="100px"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Grid.Column="0" Margin="2px">
+            <RadioButton GroupName="Mode"  Grid.Column="0" IsChecked="True" Checked="RadioButton_Create">Create</RadioButton>
+            <RadioButton GroupName="Mode"  Grid.Column="0" Checked="RadioButton_Translate">Translate</RadioButton>
+            <RadioButton GroupName="Mode"  Grid.Column="0" Checked="RadioButton_Rotate">Rotate</RadioButton>
+            <RadioButton GroupName="Mode"  Grid.Column="0" Checked="RadioButton_Scale">Scale</RadioButton>
+        </StackPanel>
+        <Button Grid.Row="3" Grid.Column="0" Name="ClearButton" Margin="1px" Click="ClearCanvasClick">Clear</Button>
+        <StackPanel Grid.Row="1" Grid.Column="0" Margin="2px">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30px"></RowDefinition>
+                    <RowDefinition Height="30px"></RowDefinition>
+                    <RowDefinition Height="30px"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="48px"></ColumnDefinition>
+                    <ColumnDefinition Width="48px"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <TextBox Margin="1px" Text="X1" Name="Create_X1" Grid.Row="0" Grid.Column="0" />
+                <TextBox Margin="1px" Text="Y1" Name="Create_Y1" Grid.Row="0" Grid.Column="1" />
+                <TextBox Margin="1px" Text="  Angle / Scale" Name="Create_X2" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"/>
+                <Button Content="Create Shape" Margin="1px" Click="CreateClick" Grid.Row="2" Grid.ColumnSpan="2" />
+            </Grid>
+        </StackPanel>
+        <Canvas Name="Canvas" Grid.Column="2" Grid.RowSpan="10"  Background="Gray" Margin="2" MouseDown="CanvasMouseDown" MouseWheel="CanvasMouseWheel"/>
+    </Grid>
+</Window>
